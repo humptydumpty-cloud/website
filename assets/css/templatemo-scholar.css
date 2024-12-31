@@ -1065,12 +1065,6 @@ Courses Style
   overflow: hidden;
 }
 
-.events_item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -1078,7 +1072,17 @@ Courses Style
 }
 
 .events_item .thumb img {
-  margin-bottom: -5px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: -5px; /* Keep the margin as it is */
+}
+
+.col-lg-4,
+.col-md-6 {
+  flex: 1 1 calc(33.333% - 30px); /* For larger screens */
+  box-sizing: border-box;
+  padding: 0; /* Ensure no padding around columns */
 }
 
 .events_item .thumb span.category {
@@ -1128,8 +1132,11 @@ Courses Style
   border-radius: 25px;
   margin-bottom: 30px;
   position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Prevent content overflow */
 }
 
 .events_item .down-content {
@@ -1149,10 +1156,12 @@ Courses Style
   transition: all 0.3s;
 }
 
+/* Hover effect for titles */
 .events_item:hover .down-content h4 {
   color: #7a6ad8;
 }
 
+/* Hover effect for price badge */
 .events_item:hover .thumb span.price {
   transform: scale(1.2);
 }
@@ -1852,21 +1861,16 @@ fieldset {
 }
 
 @media (max-width: 767px) {
-  .header-area {
-    top: 0px;
+  /* Stacking the items vertically on small screens */
+  .col-lg-4,
+  .col-md-6 {
+    flex: 1 1 100%; /* Full width on mobile */
   }
-  .header-area .main-nav .logo h1 {
-    border-right: none;
+
+  .events_item {
+    margin-bottom: 15px; /* Reduce margin between items on small screens */
   }
-  .main-banner .item {
-    padding: 80px 30px 120px 30px !important;
-  }
-  .main-banner .owl-nav {
-    left: 30px !important;
-  }
-  .event_filter {
-    padding: 15px 20px;
-  }
+
   .event_filter li {
     display: inline-block;
     margin: 0px 10px;
