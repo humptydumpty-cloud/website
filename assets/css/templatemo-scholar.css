@@ -1065,6 +1065,18 @@ Courses Style
   overflow: hidden;
 }
 
+.events_item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Adds space between items */
+}
+
 .events_item .thumb img {
   margin-bottom: -5px;
 }
